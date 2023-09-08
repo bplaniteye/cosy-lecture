@@ -1,0 +1,106 @@
+.container h1{
+  text-align: center;
+  margin: 0.5em;
+  font-family: var(--font-subtitle);
+  color: var(--secondary-on);
+}
+
+label{
+  font-family: var(--font-subtitle);
+  color: var(--secondary-on);
+  font-size: 1.3em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4em;
+}
+
+/* Mise en forme du formulaire */
+.container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  padding: 1.7em;
+  gap: 1em;
+  background-color: white;
+  box-shadow: 0px 0px 31px 9px rgba(0, 0, 0, 0.25);
+  background-color: var(--secondary-container);
+}
+
+div.form-field {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.3em;
+}
+
+/* Mise en forme des inputs */
+form .input-change{
+  width: 100%;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.8em;
+  padding: 0.5em;
+  border: 1px solid var(--primary-container);
+  background: #FFF;
+  color: var(--primary-container);
+  font-family: var(--font-subtitle);
+  font-size: 1em;
+}
+
+/* Mise en forme du bouton */
+
+button.form-button {
+  margin: 1em;
+  padding: 0.2em 1em;
+  border: none;
+  font-family: var(--font-subtitle);
+  font-size: 1.6em;
+  background-color: var(--secondary-on);
+  color: var(--secondary-container);
+  border: transparent 2px solid;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button.form-button:hover {
+  background-color: var(--secondary-container);
+  color: var(--secondary-on);
+  border: var(--secondary-on) 2px solid;
+}
+
+/* Gestion des alertes */
+.invalid-feedback {
+  color: red;
+  font-size: 20px;
+}
+
+.alert {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.alert-warning {
+  background-color: var(--secondary-on);
+  color: #333;
+}
+
+.alert-success {
+  height: 3em;
+  font-size: 20px;
+  text-align: center;
+  background-color: var(--secondary-container);
+  color:var(--secondary-on);
+}

@@ -1,0 +1,157 @@
+@font-face {
+    font-family: var(--font-title);
+    src: url(../../assets/fonts/TrajanusBricks.ttf);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+nav#nav-header {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+div#top-header {
+    display: flex;
+    width: auto;
+    margin: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div#header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    gap: 2em;
+}
+
+div#logo {
+    width: 110px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/logo/logo.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+}
+
+div#btn-connection {
+    display: flex;
+    width: 50%;
+    height: 30px;
+    gap: 2em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.link-primary,
+.link-secondary {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    text-align: center;
+    font-family: var(--font-subtitle);
+    font-size: 1.3em;
+    color: var(--secondary-container);
+    background-color: transparent;
+    cursor: pointer;
+    transition: border 200ms;
+}
+
+.link-primary {
+    border: var(--secondary-container) 2px solid;
+}
+
+.link-primary:hover {
+    border: transparent 2px solid;
+    border-bottom: var(--secondary-container) 2px solid;
+}
+
+.link-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 5%;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-container);
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    transition: transform 200ms ease-in-out;
+}
+
+.link-secondary:hover::after {
+    transform: scaleX(0.9);
+}
+
+
+/*BANNER*/
+
+div#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vw;
+    background-image: url(../../assets/images/banner.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 55%;
+}
+
+div#banner-txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 1.2vw;
+    background: var(--secondary-container);
+    margin: 15px;
+    color: var(--secondary-on);
+    text-align: center;
+    font-family: var(--font-title);
+    font-size: 2.3vw;
+    word-spacing: 1.5vw;
+    letter-spacing: -0.2vw;
+}
+
+@media (max-width: 900px) {
+
+    div#logo {
+        display: none;
+        width: 80px;
+        height: 45px;
+    }
+
+    div#btn-connection {
+        flex-direction: column;
+        width: auto;
+        height: fit-content;
+        gap: 10px;
+    }
+
+    a#log-in,
+    button#btn-sign-in,
+    #btn-acceuil {
+        font-size: 0.8em;
+    }
+
+    div#banner-txt {
+        font-size: 2.2vw;
+        word-spacing: 1.5vw;
+        letter-spacing: -0.2vw;
+    }
+}

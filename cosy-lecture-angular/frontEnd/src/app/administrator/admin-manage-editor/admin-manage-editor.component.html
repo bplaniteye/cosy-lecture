@@ -1,0 +1,25 @@
+<div>
+      <h1> {{ title }} </h1>
+  </div>
+
+<div class="table-container">
+  <table class="styled-table">
+    <caption>Liste des éditeurs</caption>
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Nom de l'éditeur</th>
+      <th>Modifier</th>
+      <th>Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let editor of editors">
+      <td>{{editor.id}}</td>
+      <td>{{editor.name}}</td>
+      <td><button>Editer</button></td>
+      <td><button (click)="deleteEditor(editor.id)" >Supprimer</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

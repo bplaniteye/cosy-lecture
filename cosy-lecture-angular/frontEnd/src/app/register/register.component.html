@@ -1,0 +1,137 @@
+<div class="container">
+  <form
+  *ngIf="!isSuccessful"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+  >
+  <h1>{{ title }}</h1>
+  <div class="form-field">
+    <label for="email">Email:</label>
+    <div class="input-change">
+      <input
+      id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">L'email est requis</div>
+          <div *ngIf="email.errors['email']">
+            L'adresse électronique doit être valide
+          </div>
+          <div *ngIf="isSignUpFailed && errorMessage">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="password">Mot de passe:</label>
+      <div class="input-change">
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">
+            Le mot de passe est requis
+          </div>
+          <div *ngIf="password.errors['minlength']">
+            Le mot de passe doit comporter au moins 3 caractères
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="passwordConfirm">Confirmation du mot de passe:</label>
+      <div class="input-change">
+        <input
+          id="passwordConfirm"
+          type="password"
+          name="passwordConfirm"
+          [(ngModel)]="form.passwordConfirm"
+          required
+          minlength="6"
+          #passwordConfirm="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="passwordConfirm.errors && f.submitted">
+          <div *ngIf="passwordConfirm.errors?.['required']">
+            La confirmation du mot de passe est requise
+          </div>
+          <div class="invalid-match" *ngIf="!passwordsMatch">
+            Les mots de passe ne correspondent pas{{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="form-button">Inscription</button>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+      L'inscription a échoué !<br />{{ errorMessage }}
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    <!-- Votre inscription est réussie ! -->
+    {{ message }}
+  </div>
+</div>
+
+    <!-- <label for="firstName">Prénom:</label>
+    <div class="input-change">
+      <input
+        id="firstName"
+        type="text"
+        name="firstName"
+        [(ngModel)]="form.firstName"
+        required
+        minlength="3"
+        maxlength="20"
+        #firstName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }"
+      />
+      <div class="invalid-feedback" *ngIf="firstName.errors && f.submitted">
+        <div *ngIf="firstName.errors['required']">Le prénom est requis</div>
+        <div *ngIf="firstName.errors['minlength']">
+          Le prénom doit comporter au moins 3 caractères
+        </div>
+        <div *ngIf="firstName.errors['maxlength']">
+          Le prénom doit comporter au maximum 20 caractères
+        </div>
+      </div>
+    </div>
+    <label for="lastName">Nom:</label>
+    <div class="input-change">
+      <input
+        id="lastName"
+        type="text"
+        name="lastName"
+        [(ngModel)]="form.lastName"
+        required
+        minlength="3"
+        maxlength="20"
+        #lastName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }"
+      />
+      <div class="invalid-feedback" *ngIf="lastName.errors && f.submitted">
+        <div *ngIf="lastName.errors['required']">Le nom est requis</div>
+        <div *ngIf="lastName.errors['minlength']">
+          Le nom doit comporter au moins 3 caractères
+        </div>
+        <div *ngIf="lastName.errors['maxlength']">
+          Le nom doit comporter au maximum 20 caractères
+        </div>
+      </div>
+    </div> -->

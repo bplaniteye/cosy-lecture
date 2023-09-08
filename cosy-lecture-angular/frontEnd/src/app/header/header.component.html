@@ -1,0 +1,29 @@
+<nav id="nav-header">
+  <div id="top-header">
+    <div id="header-left">
+      <div id="logo"></div>
+
+      <a class="link-primary" id="btn-accueil" routerLink="/home">ACCUEIL</a>
+    </div>
+    
+    <div id="btn-connection">
+      <a class="link-secondary" id="profile" *ngIf="isLoggedIn" routerLink="/profile">Profil</a>
+
+      <a class="link-secondary" id="btn-sign-in" *ngIf="!isLoggedIn" routerLink="/login">Se connecter</a>
+
+      <a class="link-primary" id="btn-sign-up" *ngIf="!isLoggedIn" routerLink="/register">S'inscrire</a>
+
+      <a class="link-primary" id="admin" *ngIf="showAdminBoard" routerLink="/admin">Administration</a>
+
+      <div *ngIf="isLoggedIn">
+        <button class="link-primary" id="btn-log-out" (click)="logout()">Déconnexion</button>
+      </div>
+    </div>
+
+  </div>
+  <div id="banner">
+    <div id="banner-txt">
+      <h1>Bienvenue chez cosylecture</h1>
+    </div>
+  </div>
+</nav>

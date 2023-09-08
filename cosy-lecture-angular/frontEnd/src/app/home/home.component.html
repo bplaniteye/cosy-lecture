@@ -1,0 +1,51 @@
+<div id="main">
+    <div id="search">
+        <!-- <input id="searchbar" type="text" name="search" placeholder="Rechercher un livre"> -->
+        <div id="icon">
+            <svg class="btn-filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <style>
+                    svg {
+                        fill: #312229;
+                    }
+                </style>
+                <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+            <svg class="btn-filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <style>
+                    svg {
+                        fill: #312229
+                    }
+                </style>
+                <path
+                    d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
+            </svg>
+        </div>
+    </div>
+
+    <div id="container-cards-primary">
+        <div class="card-primary" routerLink="/book">
+            <h2>LIVRES</h2>
+        </div>
+        <div class="card-primary" routerLink="/author">
+            <h2>AUTEURS</h2>
+        </div>
+        <div class="card-primary" routerLink="/category">
+            <h2>CATEGORIES</h2>
+        </div>
+    </div>
+
+    <h3 class="section-title">Les dernières sorties :</h3>
+
+    <div class="container-cards-secondary">
+        <ng-container *ngFor="let book of latestBooks; let i = index">
+            <ng-container *ngIf="i < 5">
+                <a [routerLink]="['/book-details', book.id]" class="card-link">
+                    <div class="card">
+                        <h4 id="titleCard">{{ book.title }}</h4>
+                        <h5 id="authorCard">{{ book.author.firstname }} {{ book.author.lastname }}</h5>
+                    </div>
+                </a>
+            </ng-container>
+        </ng-container>
+    </div>

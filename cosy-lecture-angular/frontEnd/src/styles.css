@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+:root {
+    --background: #F9F6F2;
+    --primary-container: #312229;
+    --secondary-container: #571121;
+    --tertiary-container: #47596F;
+    --primary-on: #D5C5AE;
+    --secondary-on: #E0BD00;
+
+    --font-title: 'TrajanusBricks', serif;
+    --font-subtitle: 'Playfair Display', serif;
+    --font-paragraph: 'Cormorant Upright', serif;
+}
+
+/*Firefox*/
+* {
+	scrollbar-width: auto;
+	scrollbar-color: var(--primary-on) var(--primary-container);
+}
+
+/*OTHERS*/
+*::-webkit-scrollbar {
+	width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--primary-container);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--primary-on);
+	border: 3px solid var(--primary-container);
+}
+
+*::-webkit-scrollbar-thumb:active {
+	background-color: var(--secondary-on);
+}
+
+
+html {
+    font-size: 16px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    background-color: var(--background);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*SEARCH BAR*/
+div#search {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+    width: 80%;
+}
+
+input#searchbar {
+    width: 100%;
+    height: 2vw;
+    padding-left: 0.5vw;
+    border: 2px solid var(--primary-container);
+    background: #FFF;
+    color: var(--primary-container);
+    font-family: var(--font-subtitle);
+    font-size: 1.3vw;
+}
+
+#btn-filter {
+    height: 2vw;
+    width: 2vw;
+    cursor: pointer;
+}
+
+div#filter-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 50px;
+    z-index: 10;
+}
+
+div#filter-menu button {
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: var(--primary-container);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+div#filter-menu button:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Pour les tablettes */
+@media (max-width: 1300px) {
+    input#searchbar {
+        width: 90vw;
+        height: 3vw;
+        font-size: 2vw;
+    }
+
+    svg#btn-filter {
+        height: 3vw;
+        width: 3vw;
+    }
+}
+
+/* Pour les téléphones */
+@media (max-width: 700px) {
+
+    input#searchbar {
+        width: 90vw;
+        height: 4vw;
+        font-size: 3vw;
+        border: 1px solid var(--primary-container);
+    }
+
+    svg#btn-filter {
+        height: 5vw;
+        width: 5vw;
+    }
+}
+
+@media (max-width: 450px) {
+
+    input#searchbar {
+        width: 90vw;
+        height: 5vw;
+        font-size: 4vw;
+        border: 1px solid var(--primary-container);
+    }
+
+    svg#btn-filter {
+        height: 6vw;
+        width: 6vw;
+    }
+}
+
+/* CARDS */
+div#main {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin: 5vh 0;
+}
+
+div#container-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5vw;
+    align-items: stretch;
+    justify-content: center;
+    width: 80vw;
+    height: auto;
+}
+
+div.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 200px;
+    height: 330px;
+    padding: 0 5% 2% 5%;
+    background: linear-gradient(0deg, #FFF 22.40%, rgba(255, 255, 255, 0.00) 52.60%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%),
+        url(./assets/images/card.webp), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--font-paragraph);
+    box-shadow: 0px 0px 31px 9px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+div.card-primary:hover {
+    transform: scale(1.1);
+}
+
+div.card:hover {
+    transform: translateY(-10%) scale(1.2);
+}
+
+div p#titleCard {
+    color: #000;
+    font-family: var(--font-paragraph);
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 2%;
+}
+
+div p#authorCard {
+    color: #000;
+    font-family: var(--font-paragraph);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* Responsive Styles */
+/* Pour les écrans de bureau (desktop) */
+@media (min-width: 1324px) {
+    div#container-cards {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 5vw;
+        height: auto;
+    }
+}
+
+/* Pour les tablettes */
+@media (max-width: 1300px) {
+    div#main {
+        gap: 40px;
+    }
+
+    div#container-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    div.card p#titleCard {
+        color: #000;
+        font-family: var(--font-paragraph);
+        font-size: 3vw;
+        padding-bottom: 2%;
+    }
+
+    div.card p#authorCard {
+        color: #000;
+        font-family: var(--font-paragraph);
+        font-size: 2.2vw;
+    }
+}
+
+/* Pour les téléphones */
+@media (max-width: 700px) {
+    div#main {
+        margin: 3vh 0;
+    }
+
+    div#container-cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Responsive cards */
+@media (max-width: 1350px) {
+    div#container-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    div.card {
+        width: 200px;
+        height: 300px;
+    }
+
+    div.card p#titleCard {
+        font-size: 20px;
+    }
+
+    div.card p#authorCard {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    div#container-cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 8vw;
+    }
+
+    div.card {
+        width: 180px;
+        height: 290px;
+    }
+}
+
+@media (max-width: 760px) {
+    div#container-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    div.card {
+        width: 150px;
+        height: 245px;
+    }
+
+    div.card p#titleCard {
+        font-size: 17px;
+    }
+
+    div.card p#authorCard {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 500px) {
+    div#container-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5vw;
+    }
+
+    div.card {
+        width: 120px;
+        height: 190px;
+    }
+
+    div.card p#titleCard {
+        font-size: 15px;
+    }
+
+    div.card p#authorCard {
+        font-size: 11px;
+    }
+}

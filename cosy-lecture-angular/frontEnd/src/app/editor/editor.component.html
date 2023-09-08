@@ -1,0 +1,7 @@
+
+<h1> {{ title }} </h1>
+<ul *ngFor="let editor of editors | paginate: { itemsPerPage: 25, currentPage: pages }">
+<a [routerLink]="['/books-by-editor', editor.id]">
+  <li>{{ editor.name }}</li>
+</a>
+</ul>

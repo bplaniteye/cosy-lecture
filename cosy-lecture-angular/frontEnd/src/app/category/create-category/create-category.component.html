@@ -1,0 +1,54 @@
+<div class="container">
+  <form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <h1>{{ title }}</h1>
+
+    <label for="label">Nom:</label>
+    <div class="input-change">
+      <input
+        id="label"
+        type="text"
+        name="label"
+        [(ngModel)]="form.label"
+        required
+        #label="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && label.errors }"
+      />
+      <div *ngIf="label.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="label.errors['required']">
+          Le nom de la catégorie est requis
+        </div>
+      </div>
+    </div>
+
+    <label for="definition">Définition:</label>
+    <div class="input-change">
+      <input
+        id="definition"
+        type="textarea"
+        name="bio"
+        [(ngModel)]="form.definition"
+        required
+        #definition="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && definition.errors }"
+      />
+      <div *ngIf="definition.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="definition.errors['required']">
+          La définition est requise
+        </div>
+      </div>
+
+      <div class="form-button">
+        <button>Ajouter une catégorie</button>
+      </div>
+
+      <div *ngIf="f.submitted && isAddFailed" class="danger" role="alert">
+        La création de la catégorie a échoué: {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,46 @@
+h1{
+  text-align: center;
+  margin-bottom: 0.7em;
+  color: var(--secondary-on);
+}
+
+label{
+  color: var(--secondary-on);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 2em;
+  border: solid black;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: var(--secondary-on);
+  color: var(--secondary-container);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}

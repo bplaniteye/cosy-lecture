@@ -1,0 +1,138 @@
+<div class="container">
+  <form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <h1>{{ titre }}</h1>
+    <label for="title">Titre:</label>
+    <div class="input-change">
+      <input
+        id="title"
+        type="text"
+        name="title"
+        [(ngModel)]="form.title"
+        required
+        #title="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && title.errors }"
+      />
+      <div *ngIf="title.errors && f.submitted" class="invalid-feedback">
+        Le titre du livre est requis
+      </div>
+    </div>
+    <label for="quantity">Quantité:</label>
+    <div class="input-change">
+      <input
+        id="quantity"
+        type="number"
+        name="quantity"
+        [(ngModel)]="form.quantity"
+        required
+        #quantity="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && quantity.errors }"
+      />
+      <div *ngIf="quantity.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="quantity.errors['required']">La quantité est requise</div>
+      </div>
+    </div>
+    <label for="summary">Sommaire:</label>
+    <div class="input-change">
+      <input
+        id="summary"
+        type="text"
+        name="summary"
+        [(ngModel)]="form.summary"
+        required
+        #summary="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && summary.errors }"
+      />
+      <div *ngIf="summary.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="summary.errors['required']">Le sommaire est requise</div>
+      </div>
+    </div>
+    <!-- <label for="createdAt">Date de création:</label>
+    <div class="input-change">
+      <input
+        id="createdAt"
+        type="date"
+        name="createdAt"
+        [(ngModel)]="form.createdAt"
+        required
+        #createdAt="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && createdAt.errors }"
+      />
+      <div *ngIf="createdAt.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="createdAt.errors['required']">
+          La date de création est requise
+        </div>
+      </div>
+    </div> -->
+    <!-- <label>Disponibilité</label>
+    <select class="select" name="available" [(ngModel)]="form.available">
+      <option [ngValue]="true">Disponible</option>
+      <option [ngValue]="false">Non disponible</option>
+    </select> -->
+    <label>Choisir un éditeur</label>
+    <select class="select" name="editor" [(ngModel)]="form.editor">
+      <option *ngFor="let editor of editors" [ngValue]="editor">
+        {{ editor.name }}
+      </option>
+    </select>
+    <label for="publicationYear">Date de publication:</label>
+    <div class="input-change">
+      <input
+        id="publicationYear"
+        type="date"
+        name="publicationYear"
+        [(ngModel)]="form.publicationYear"
+        required
+        #publicationYear="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && publicationYear.errors }"
+      />
+      <div
+        *ngIf="publicationYear.errors && f.submitted"
+        class="invalid-feedback"
+      >
+        <div *ngIf="publicationYear.errors['required']">
+          La date de publication est requise
+        </div>
+      </div>
+    </div>
+    <label for="version">Version:</label>
+    <div class="input-change">
+      <input
+        id="version"
+        type="text"
+        name="version"
+        [(ngModel)]="form.version"
+        required
+        #version="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && version.errors }"
+      />
+      <div *ngIf="version.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="version.errors['required']">La version est requise</div>
+      </div>
+    </div>
+    <label>Choisir un auteur</label>
+    <select class="select" name="author" [(ngModel)]="form.author">
+      <option *ngFor="let author of authors" [ngValue]="author">
+        {{ author.firstname }} {{ author.lastname }}
+      </option>
+    </select>
+    <label>Choisir la catégorie</label>
+    <select class="select" name="category" [(ngModel)]="form.category">
+      <option *ngFor="let category of categories" [ngValue]="category">
+        {{ category.label }}
+      </option>
+    </select>
+    <div class="form-button">
+      <button>Ajouter un livre</button>
+    </div>
+    <div>
+      <div *ngIf="f.submitted && isAddFailed" class="danger" role="alert">
+        La création du livre a échoué: {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>Numéro d'emprunt</th>
+      <th>Nom du client</th>
+      <th>Prénom du client</th>
+      <th>Livre emprunté</th>
+      <th>Début de l'emprunt</th>
+      <th>Fin de l'emprunt</th>
+      <th>Retour du livre</th>
+      <th>Retour de l'emprunt</th>
+      <th>Editer</th>
+      <th>Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let borrow of borrows">
+      <td>{{borrow.id}}</td>
+      <td>{{borrow.user.lastName}}</td>
+      <td>{{borrow.user.firstName}}</td>
+      <td>{{borrow.book.title}} </td>
+      <td>{{borrow.startDate}}</td>
+      <td>{{borrow.endDate}}</td>
+      <td>{{borrow.isReturned}}</td>
+      <td>{{borrow.returnDate | date}}</td>
+      <td><button>Editer</button></td>
+      <td><button>Supprimer</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

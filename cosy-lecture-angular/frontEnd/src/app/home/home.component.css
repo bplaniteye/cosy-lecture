@@ -1,0 +1,112 @@
+div#container-cards-primary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    align-items: center;
+    align-content: space-evenly;
+    justify-content: center;
+    justify-items: center;
+    width: 80vw;
+    height: fit-content;
+}
+
+div.card-primary {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20em;
+    height: 30em;
+    font-family: var(--font-paragraph);
+    box-shadow: 0px 0px 31px 9px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card-primary>h2 {
+    font-family: var(--font-paragraph);
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+    color: var(--primary-on);
+}
+
+.card-primary:nth-child(1) {
+    background: linear-gradient(0deg, var(--primary-container) 20%, rgba(255, 255, 255, 0.00)60%), linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), url(../../assets/images/book.webp), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-primary:nth-child(2) {
+    background: linear-gradient(0deg, var(--secondary-container) 20%, rgba(255, 255, 255, 0.00) 60%), linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), url(../../assets/images/author.webp), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-primary:nth-child(3) {
+    background: linear-gradient(0deg, var(--tertiary-container) 20%, rgba(255, 255, 255, 0.00) 60%), linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), url(../../assets/images/category.webp), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3.section-title {
+    font-size: 3em;
+    font-family: var(--font-paragraph);
+}
+
+div.container-cards-secondary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2em;
+    align-items: center;
+    align-content: space-evenly;
+    justify-content: center;
+    justify-items: center;
+    width: 80vw;
+    height: fit-content;
+}
+
+div.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 200px;
+    height: 330px;
+    padding: 0 5% 2% 5%;
+    background: linear-gradient(0deg, #FFF 22.40%, rgba(255, 255, 255, 0.00) 52.60%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%),
+        url(../../assets/images/card.webp), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--font-paragraph);
+    box-shadow: 0px 0px 31px 9px rgba(0, 0, 0, 0.25);
+}
+
+/* RESPONSIVE */
+/* Pour les tablettes */
+@media (max-width: 1100px) {
+
+    div.card-primary {
+        width: 15em;
+        height: 25em;
+    }
+
+    .card-primary>h2 {
+        font-family: var(--font-paragraph);
+        font-size: 2em;
+        padding-bottom: 0.5em;
+        color: var(--primary-on);
+    }
+
+    h3.section-title {
+        font-size: 2em;
+    }
+}
+
+/* Pour les téléphones */
+@media (max-width: 800px) {
+
+    div#container-cards-primary {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

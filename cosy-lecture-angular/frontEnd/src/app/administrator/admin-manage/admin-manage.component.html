@@ -1,0 +1,39 @@
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Titre</th>
+        <th>Quantité</th>
+        <th>Sommaire</th>
+        <th>Disponible</th>
+        <th>Date d'ajout</th>
+        <th>Editeur</th>
+        <th>Année de publication</th>
+        <th>Version</th>
+        <th>Auteur</th>
+        <th>Catégorie</th>
+        <th>Editer</th>
+        <th>Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.quantity}}</td>
+        <td>{{book.summary}}</td>
+        <td>{{book.available}}</td>
+        <td>{{book.createdAt}}</td>
+        <td>{{book.editor.name}}</td>
+        <td>{{book.publicationYear | date}}</td>
+        <td>{{book.version}}</td>
+        <td>{{book.author.firstname}} {{book.author.lastname }}</td>
+        <td>{{book.category.label}}</td>
+        <td><button>Editer</button></td>
+        <td><button>Supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button (click)="goToAddBook()"></button>

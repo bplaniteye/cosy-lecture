@@ -1,0 +1,14 @@
+<div id="main">
+  <div id="container-cards">
+    <div *ngFor="let book of books | paginate: { itemsPerPage: 25, currentPage: pages }">
+        <a [routerLink]="['/book-details', book.id]" class="card-link">
+            <div class="card">
+                <h3 id="titleCard">{{ book.title }}</h3>
+                <h6 id="authorCard">{{ book.author.firstname }} {{ book.author.lastname }}</h6>
+            </div>
+        </a>
+    </div>
+</div>
+
+  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+</div>

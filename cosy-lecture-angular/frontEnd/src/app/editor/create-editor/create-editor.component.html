@@ -1,0 +1,36 @@
+<div class="container">
+    <form
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate    >
+
+        <h1>{{ title }}</h1>
+
+        <label for="name">Nom:</label>
+        <div class="input-change">
+            <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    [(ngModel)]="form.name"
+                    required
+                    #label="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && label.errors }"
+            />
+            <div *ngIf="label.errors && f.submitted" class="invalid-feedback">
+                <div *ngIf="label.errors['required']">
+                    Le nom de l'éditeur est requis
+                </div>
+            </div>
+        </div>
+
+            <div class="form-button">
+                <button>Ajouter un éditeur</button>
+            </div>
+
+            <div *ngIf="f.submitted && isAddFailed" class="danger" role="alert">
+                La création de l'éditeur a échoué: {{ errorMessage }}
+            </div>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="container"> <!-- container -->
+
+  <h1>{{ title }}</h1>
+
+  <form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+
+
+  <div class="input-change">
+    <label>Identité de l'emprunteur</label>
+<select class="select" name="user" [(ngModel)]="form.user">
+      <option *ngFor="let user of users" [ngValue]="user">
+          {{ user.email }} {{ user.firstName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="input-change">
+    <label>Livre</label>
+    <select class="select" name="book" [(ngModel)]="form.book">
+      <option *ngFor="let book of books" [ngValue]="book">
+        {{ book.title }} de {{book.author.firstname}} {{book.author.lastname}}
+      </option>
+    </select>
+  </div>
+
+    <div class="form-button">
+      <button>Valider l'emprunt</button>
+    </div>
+    <div>
+
+      <div *ngIf="f.submitted && isAddFailed" class="danger" role="alert">
+        L'emprunt n'a pas été validé: {{ errorMessage }}
+      </div>
+
+    </div>
+  </form>
+</div> <!-- /container -->

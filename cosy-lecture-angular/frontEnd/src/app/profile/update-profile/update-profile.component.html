@@ -1,0 +1,72 @@
+<h1>{{ title }}</h1>
+<div class="container">
+  <form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+  <label for="firstName">Prénom:</label>
+  <div class="firstName">
+    <input
+      id="firstName"
+      type="text"
+      name="firstName"
+      [(ngModel)]="form.firstName"
+      required
+      minlength="3"
+      maxlength="20"
+      #firstName="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }"
+    />
+    <div class="invalid-feedback" *ngIf="firstName.errors && f.submitted">
+      <div *ngIf="firstName.errors['required']">Le prénom est requis</div>
+      <div *ngIf="firstName.errors['minlength']">
+        Le prénom doit comporter au moins 3 caractères
+      </div>
+      <div *ngIf="firstName.errors['maxlength']">
+        Le prénom doit comporter au maximum 20 caractères
+      </div>
+    </div>
+  </div>
+  <label for="lastName">Nom:</label>
+  <div class="lastName">
+    <input
+      id="lastName"
+      type="text"
+      name="lastName"
+      [(ngModel)]="form.lastName"
+      required
+      minlength="3"
+      maxlength="20"
+      #lastName="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }"
+    />
+    <div class="invalid-feedback" *ngIf="lastName.errors && f.submitted">
+      <div *ngIf="lastName.errors['required']">Le nom est requis</div>
+      <div *ngIf="lastName.errors['minlength']">
+        Le nom doit comporter au moins 3 caractères
+      </div>
+      <div *ngIf="lastName.errors['maxlength']">
+        Le nom doit comporter au maximum 20 caractères
+      </div>
+    </div>
+  </div>
+    <div class="email">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="form.email"
+        required
+        autocomplete="email"
+        #email="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+      />
+      <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+        Email is required!
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,99 @@
+<div class="container">
+  <form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <h1>{{ title }}</h1>
+    <label for="lastname">Nom:</label>
+    <div class="input-change">
+      <input
+        id="lastname"
+        type="text"
+        name="lastname"
+        [(ngModel)]="form.lastname"
+        required
+        #lastname="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && lastname.errors }"
+      />
+      <div *ngIf="lastname.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="lastname.errors['required']">
+          Le nom de l'auteur est requis
+        </div>
+      </div>
+    </div>
+    <label for="firstname">Prénom:</label>
+    <div class="input-change">
+      <input
+        id="firstname"
+        type="text"
+        name="firstname"
+        [(ngModel)]="form.firstname"
+        required
+        #firstname="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }"
+      />
+      <div *ngIf="firstname.errors && f.submitted" class="invalid-feedback">
+        Le prénom de l'auteur est requis
+      </div>
+    </div>
+    <label for="bio">Biographie:</label>
+    <div class="input-change">
+      <input
+        id="bio"
+        type="textarea"
+        name="bio"
+        [(ngModel)]="form.bio"
+        required
+        #bio="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && bio.errors }"
+      />
+      <div *ngIf="bio.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="bio.errors['required']">La biographie est requise</div>
+      </div>
+    </div>
+    <label for="birthday">Date de création:</label>
+    <div class="input-change">
+      <input
+        id="birthday"
+        type="date"
+        name="birthday"
+        [(ngModel)]="form.birthday"
+        required
+        #birthday="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && birthday.errors }"
+      />
+      <div *ngIf="birthday.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="birthday.errors['required']">
+          La date de création est requise
+        </div>
+      </div>
+    </div>
+    <label for="deathday">Quantité:</label>
+    <div class="input-change">
+      <input
+        id="deathday"
+        type="date"
+        name="deathday"
+        [(ngModel)]="form.deathday"
+        required
+        #deathday="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && deathday.errors }"
+      />
+      <div *ngIf="deathday.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="deathday.errors['required']">
+          La date du décès est requise
+        </div>
+      </div>
+    </div>
+    <div class="form-button">
+      <button>Ajouter un auteur</button>
+    </div>
+    <div>
+      <div *ngIf="f.submitted && isAddFailed" class="danger" role="alert">
+        La création de l'auteur a échoué: {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+</div>

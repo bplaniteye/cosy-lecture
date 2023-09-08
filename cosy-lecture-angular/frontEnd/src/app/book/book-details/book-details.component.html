@@ -1,0 +1,18 @@
+<div *ngIf="book" class="container">
+  <div class="book-image">
+    <img src="../../../assets/images/card.webp" alt="Couverture du livre">
+  </div>
+  <div class="book-info">
+    <p class="book-title">{{ book.title }}</p>
+    <p class="author">{{ book.author.firstname }} {{ book.author.lastname }}</p>
+    <p class="summary">{{ book.summary }}</p>
+    <p class="category">{{ book.category.label }}</p>
+    <p class="editor">Editeur :{{ book.editor.name }}</p>
+    <p class="version">{{ book.version }}</p>
+      <button class="borrow-button" (click)="borrowBook()">Emprunter</button>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      <!-- Votre inscription est réussie ! -->
+      {{ message }}
+    </div>
+  </div>
+</div>

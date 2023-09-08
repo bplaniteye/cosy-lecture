@@ -1,0 +1,63 @@
+<!-- <h2 *ngIf="!isLoggedIn">{{message}}</h2> -->
+<!-- <h2 *ngIf="showLoginErrorMessage" class="login-error">
+  "Vous ne pouvez accéder à cette page vous n'êtes pas connecté!"
+</h2> -->
+<div class="container">
+  <form
+    *ngIf="!isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+  <h1>{{ title }}</h1>
+    <div class="form-field">
+      <label for="email">Email:</label>
+      <div class="input-change">
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          autocomplete="email"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        />
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+          Email is required!
+        </div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="password">Password:</label>
+      <div class="input-change">
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+    </div>
+      <button class="form-button">Connexion</button>
+    <div>
+      <div *ngIf="f.submitted && isLoginFailed" class="danger" role="alert">
+        Login failed: {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+  <!-- <div class="alert alert-success" *ngIf="isLoggedIn">
+    Bienvenue {{ firstName }}. Role as {{ currentUser.role }}.
+  </div> -->
+</div>
